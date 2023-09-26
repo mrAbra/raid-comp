@@ -8,7 +8,7 @@
         </div>
         </div>
         <button @click="addCharacter()" class="player-form-button">Добавить персонажа</button>
-        <button @click="submitPlayer" class="player-form-button">Сохранить профиль</button>
+        <button @click="generateProfile" class="player-form-button">Сохранить профиль</button>
     </div>
   </template>
   
@@ -44,7 +44,29 @@
         // Здесь можно выполнить действия по сохранению данных игрока и его персонажей
         console.log('Имя игрока:', this.playerName);
         console.log('Персонажи:', this.characters);
-      }
+      },
+      generateProfile() {
+      // Создаем объект с данными игрока и персонажами
+      const profile = {
+        playerName: this.playerName,
+        characters: this.characters
+      };
+
+      // Преобразуем объект в JSON-строку
+      const profileJson = JSON.stringify(profile);
+      
+        const blob = new Blob([profileJson], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'profile.json';
+        a.click();
+
+        // Освобождаем ресурсы после скачивания
+        URL.revokeObjectURL(url);
+      // Выводим JSON-строку в консоль (вместо этого можно отправить на сервер или сохранить в файл)
+      console.log('Сохраненный профиль:', profileJson);
+     }
     }
   };
   </script>

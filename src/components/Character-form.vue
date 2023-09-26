@@ -6,10 +6,10 @@
         <input type="text" id="characterName" v-model="characterName" required>
         <br>
         <label for="gearScore">Gear Score:</label>
-        <input type="number" id="gearScore" v-model.number="gearScore" required>
+        <input type="number" id="gearScore" v-model.number="character.gearScore" required>
         <br>
         <label for="class">Класс:</label>
-        <select id="class" v-model="selectedClass" required>
+        <select id="class" v-model="character.selectedClass" required>
             <option value="warrior">Воин</option>
             <option value="paladin">Паладин</option>
             <option value="deathKnigth">Рыцарь смерти</option>
@@ -23,21 +23,22 @@
         </select>
         <br>
         <label for="specialization">Специализация:</label>
-        <select id="specialization" v-model="selectedSpecialization" required>
+        <select id="specialization" v-model="character.selectedSpecialization" required>
             <option value="tank">Танк</option>
             <option value="healer">Лекарь</option>
             <option value="damage">Урон</option>
         </select>
         <label for="cloak">Есть плащ?</label>
-        <input type="checkbox" id="cloak" v-model="hasCloak" required>
+        <input type="checkbox" id="cloak" v-model="character.hasCloak" required>
+
         <label for="hasOffspec">Есть оффспек?</label>
         <input type="checkbox" id="hasOffspec" v-model="character.hasOffspec">
         <div v-if="character.hasOffspec">
             <label for="gearScoreOff">Gear Score:</label>
-            <input type="number" id="gearScoreOff" v-model.number="gearScore" required>
+            <input type="number" id="gearScoreOff" v-model.number="character.gearScoreOff" required>
             <br>
             <label for="specializationOff">Специализация:</label>
-            <select id="specializationOff" v-model="character.hasOffspec" required>
+            <select id="specializationOff" v-model="character.specializationOff" required>
                 <option value="tank">Танк</option>
                 <option value="healer">Лекарь</option>
                 <option value="damage">Урон</option>
@@ -57,10 +58,10 @@
     },
     data() {
       return {
-        characterName: '',
-        gearScore: null,
-        selectedClass: '', // Добавлено для выбора класса
-        selectedSpecialization: '', // Добавлено для выбора специализации
+        characterName: 'Василий',
+        gearScore: 5400,
+        selectedClass: 'warrior', // Добавлено для выбора класса
+        selectedSpecialization: 'damage', // Добавлено для выбора специализации
         hasCloak: false,
         hasOffspec: false,
         gearScoreOff: '',
@@ -68,14 +69,6 @@
       };
     },
     methods: {
-      submitCharacter() {
-      // Здесь можно выполнить действия по обработке данных формы
-      console.log('Имя персонажа:', this.characterName);
-      console.log('Gear Score:', this.gearScore);
-      console.log('Класс:', this.selectedClass);
-      console.log('Специализация:', this.selectedSpecialization);
-      console.log('Есть ли плащ?', this.hasCloak ? 'Да' : 'Нет');
-      },
       closeForm() {
         this.$emit('close');
     }

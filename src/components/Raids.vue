@@ -1,12 +1,12 @@
 <template>
     <div class="raid-form">
       <!-- Добавляем шесть таблиц, каждая из которых использует компонент Table.vue -->
-      <table-component class="table-component"></table-component>
-      <table-component class="table-component"></table-component>
-      <table-component class="table-component"></table-component>
-      <table-component class="table-component"></table-component>
-      <table-component class="table-component"></table-component>
-      <table-component class="table-component"></table-component>
+      <table-component class="table-component" id="raid-one"></table-component>
+      <table-component class="table-component" id="raid-one"></table-component>
+      <table-component class="table-component" id="raid-one"></table-component>
+      <table-component class="table-component" id="raid-one"></table-component>
+      <table-component class="table-component" id="raid-one"></table-component>
+      <table-component class="table-component" id="raid-one"></table-component>
     </div>
   </template>
   
