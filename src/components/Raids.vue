@@ -1,26 +1,29 @@
 <template>
-    <div class="raid-form">
-      <!-- Добавляем шесть таблиц, каждая из которых использует компонент Table.vue -->
-      <table-component class="table-component" id="raid-one"></table-component>
-      <table-component class="table-component" id="raid-one"></table-component>
-      <table-component class="table-component" id="raid-one"></table-component>
-      <table-component class="table-component" id="raid-one"></table-component>
-      <table-component class="table-component" id="raid-one"></table-component>
-      <table-component class="table-component" id="raid-one"></table-component>
-    </div>
-  </template>
-  
-  <script>
-  import TableComponent from './Raid-comp.vue'; // Импортируем компонент для таблицы
-  
-  export default {
-    components: {
-      TableComponent // Регистрируем компонент
-    }
-  };
-  </script>
+  <div class="raid-form">
+    <!-- Добавляем шесть таблиц, каждая из которых использует компонент Table.vue -->
+    <table-component
+      v-for="(raid, index) in raids"   
+      :key="index"
+      :raid="raid"                      
+      :class="'table-component ' + raid.raidName" ></table-component>
+  </div>
+</template>
 
+<script>
+import TableComponent from './Raid-comp.vue';
+import { raids } from '../router/json-raid-parser.js'; // Импортируйте данные о рейдах
 
+export default {
+  components: {
+    TableComponent
+  },
+  data() {
+    return {
+      raids: raids.slice(0, 6) // Получаем первые шесть рейдов из массива
+    };
+  }
+};
+</script>
 <style>
     .raid-form, .table-component{
     background-color: #f0f0f0;

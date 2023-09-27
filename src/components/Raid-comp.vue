@@ -1,27 +1,36 @@
 <template>
-    <table>
-        <tbody>
-            <tr v-for="(character, index) in characters" :key="index">
-            <td>{{ character.name }}</td>
-            <td>{{ character.gearScore }}</td>
-            <td>
+    <div>
+      <!-- Пройдемся по массиву рейдов -->
+        <h2>{{ raid.raidName }}</h2>
+        <table>
+          <tbody>
+            <!-- Пройдемся по массиву персонажей в текущем рейде -->
+            <tr v-for="(character, characterIndex) in raid.characters" :key="characterIndex">
+              <td>{{ character.name }}</td>
+              <td>{{ character.gearScore }}</td>
+              <td>
                 <!-- Вставляем иконку или текстовое представление роли -->
                 <span v-if="character.role === 'Танк'">Танк</span>
                 <span v-else-if="character.role === 'Лекарь'">Лекарь</span>
                 <span v-else-if="character.role === 'Боец'">Боец</span>
                 <!-- Добавьте другие роли по мере необходимости -->
-            </td>
+              </td>
             </tr>
-        </tbody>
-    </table>
+          </tbody>
+        </table>
+    </div>
   </template>
   
   <script>
+ 
   export default {
-    props: {
-    characters: Array // Принимаем массив персонажей как свойство
+    props:{
+        raid: Object,
     },
-    // Компонент для таблицы с разными типами персонажей
+    data() {
+      return {
+        };
+    },
   };
   </script>
   
