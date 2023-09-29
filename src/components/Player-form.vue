@@ -14,6 +14,7 @@
   
   <script>
   import CharacterForm from './Character-form.vue';
+
   
   export default {
     components: {
@@ -51,7 +52,9 @@
         playerName: this.playerName,
         characters: this.characters
       };
-
+      this.$store.commit('setCharacters', this.characters);
+      console.log('Updated characters:', this.characters);
+/*
       // Преобразуем объект в JSON-строку
       const profileJson = JSON.stringify(profile);
       
@@ -66,6 +69,7 @@
         URL.revokeObjectURL(url);
       // Выводим JSON-строку в консоль (вместо этого можно отправить на сервер или сохранить в файл)
       console.log('Сохраненный профиль:', profileJson);
+*/
      }
     }
   };
@@ -77,7 +81,6 @@
   color: rgb(51, 51, 51);
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   font-family: Arial, sans-serif;
   width: 400px; /* Устанавливаем ширину формы на 50% экрана */
   float: left; /* Выравниваем форму в левой части экрана */

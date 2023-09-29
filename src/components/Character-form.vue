@@ -3,13 +3,13 @@
       <form @submit.prevent="submitCharacter" class="character-form">
         <span class="close-button" @click="closeForm">×</span>
         <label for="characterName">Имя персонажа:</label>
-        <input type="text" id="characterName" v-model="characterName" required>
+        <input type="text" id="characterName" v-model="character.characterName" required>
         <br>
         <label for="gearScore">Gear Score:</label>
         <input type="number" id="gearScore" v-model.number="character.gearScore" required>
         <br>
         <label for="class">Класс:</label>
-        <select id="class" v-model="character.selectedClass" required>
+        <select id="class" v-model="character.class" required>
             <option value="warrior">Воин</option>
             <option value="paladin">Паладин</option>
             <option value="deathKnigth">Рыцарь смерти</option>
@@ -23,10 +23,10 @@
         </select>
         <br>
         <label for="specialization">Специализация:</label>
-        <select id="specialization" v-model="character.selectedSpecialization" required>
-            <option value="tank">Танк</option>
-            <option value="healer">Лекарь</option>
-            <option value="damage">Урон</option>
+        <select id="specialization" v-model="character.role" required>
+            <option value="Танк">Танк</option>
+            <option value="Лекарь">Лекарь</option>
+            <option value="Боец">Боец</option>
         </select>
         <label for="cloak">Есть плащ?</label>
         <input type="checkbox" id="cloak" v-model="character.hasCloak" required>
@@ -39,9 +39,9 @@
             <br>
             <label for="specializationOff">Специализация:</label>
             <select id="specializationOff" v-model="character.specializationOff" required>
-                <option value="tank">Танк</option>
-                <option value="healer">Лекарь</option>
-                <option value="damage">Урон</option>
+                <option value="Танк">Танк</option>
+                <option value="Лекарь">Лекарь</option>
+                <option value="Боец">Боец</option>
             </select>
         </div>
         <br>
@@ -58,10 +58,10 @@
     },
     data() {
       return {
-        characterName: 'Василий',
+        characterName: '',
         gearScore: 5400,
-        selectedClass: 'warrior', // Добавлено для выбора класса
-        selectedSpecialization: 'damage', // Добавлено для выбора специализации
+        class: '', // Добавлено для выбора класса
+        role: '', // Добавлено для выбора специализации
         hasCloak: false,
         hasOffspec: false,
         gearScoreOff: '',
@@ -94,7 +94,6 @@
     color: #fff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     font-family: Arial, sans-serif;
     margin: 10px 0;
     position: relative; /* Устанавливаем позицию для позиционирования кнопки закрытия */

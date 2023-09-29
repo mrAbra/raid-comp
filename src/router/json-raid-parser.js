@@ -12,37 +12,37 @@ class Raid {
         "raidName": "Raid 1",
         "characters": [
           {
-            "name": "Z517SSbZ",
+            "characterName": "Z517SSbZ",
             "role": "Лекарь",
             "gearScore": 4758
           },
           {
-            "name": "CU05LjONCJ",
+            "characterName": "CU05LjONCJ",
             "role": "Танк",
             "gearScore": 4630
           },
           {
-            "name": "51IOV0yZ",
+            "characterName": "51IOV0yZ",
             "role": "Боец",
             "gearScore": 5076
           },
           {
-            "name": "s0BfRE4od",
+            "characterName": "s0BfRE4od",
             "role": "Лекарь",
             "gearScore": 5216
           },
           {
-            "name": "XmS4PP",
+            "characterName": "XmS4PP",
             "role": "Танк",
             "gearScore": 5511
           },
           {
-            "name": "9oz7j7",
+            "characterName": "9oz7j7",
             "role": "Боец",
             "gearScore": 5563
           },
           {
-            "name": "7wqVZ7b7",
+            "characterName": "7wqVZ7b7",
             "role": "Боец",
             "gearScore": 4728
           }
@@ -52,7 +52,7 @@ class Raid {
         "raidName": "Raid 2",
         "characters": [
           {
-            "name": "xnfxY",
+            "characterName": "xnfxY",
             "role": "Боец",
             "gearScore": 5265
           }
@@ -62,17 +62,17 @@ class Raid {
         "raidName": "Raid 3",
         "characters": [
           {
-            "name": "626dUL",
+            "characterName": "626dUL",
             "role": "Танк",
             "gearScore": 4774
           },
           {
-            "name": "nLdp2l6j",
+            "characterName": "nLdp2l6j",
             "role": "Лекарь",
             "gearScore": 5096
           },
           {
-            "name": "ICcIs",
+            "characterName": "ICcIs",
             "role": "Боец",
             "gearScore": 5199
           }
@@ -82,42 +82,42 @@ class Raid {
         "raidName": "Raid 4",
         "characters": [
           {
-            "name": "ccNuC",
+            "characterName": "ccNuC",
             "role": "Танк",
             "gearScore": 5133
           },
           {
-            "name": "7SeaQm",
+            "characterName": "7SeaQm",
             "role": "Танк",
             "gearScore": 5512
           },
           {
-            "name": "0KSdtZS",
+            "characterName": "0KSdtZS",
             "role": "Боец",
             "gearScore": 5584
           },
           {
-            "name": "f9niFvvq",
+            "characterName": "f9niFvvq",
             "role": "Боец",
             "gearScore": 5693
           },
           {
-            "name": "kchuKAW",
+            "characterName": "kchuKAW",
             "role": "Лекарь",
             "gearScore": 4550
           },
           {
-            "name": "E4B5xt0",
+            "characterName": "E4B5xt0",
             "role": "Боец",
             "gearScore": 5342
           },
           {
-            "name": "OBHWJalJ",
+            "characterName": "OBHWJalJ",
             "role": "Боец",
             "gearScore": 4953
           },
           {
-            "name": "7vPNchGR",
+            "characterName": "7vPNchGR",
             "role": "Лекарь",
             "gearScore": 4975
           }
@@ -127,12 +127,12 @@ class Raid {
         "raidName": "Raid 5",
         "characters": [
           {
-            "name": "iKC6F",
+            "characterName": "iKC6F",
             "role": "Боец",
             "gearScore": 5792
           },
           {
-            "name": "ICCL5WZT",
+            "characterName": "ICCL5WZT",
             "role": "Танк",
             "gearScore": 4535
           }
@@ -142,47 +142,47 @@ class Raid {
         "raidName": "Raid 6",
         "characters": [
           {
-            "name": "Z9Ztj1",
+            "characterName": "Z9Ztj1",
             "role": "Боец",
             "gearScore": 5641
           },
           {
-            "name": "nfWxC",
+            "characterName": "nfWxC",
             "role": "Боец",
             "gearScore": 4580
           },
           {
-            "name": "Pd9GN6f",
+            "characterName": "Pd9GN6f",
             "role": "Боец",
             "gearScore": 4904
           },
           {
-            "name": "Y8QA7e6N8N",
+            "characterName": "Y8QA7e6N8N",
             "role": "Боец",
             "gearScore": 4510
           },
           {
-            "name": "oKg1zlIH",
+            "characterName": "oKg1zlIH",
             "role": "Лекарь",
             "gearScore": 5519
           },
           {
-            "name": "bCSB3O",
+            "characterName": "bCSB3O",
             "role": "Боец",
             "gearScore": 4527
           },
           {
-            "name": "ZjM1O7Vi",
+            "characterName": "ZjM1O7Vi",
             "role": "Боец",
             "gearScore": 4786
           },
           {
-            "name": "rqNfKjp",
+            "characterName": "rqNfKjp",
             "role": "Лекарь",
             "gearScore": 5503
           },
           {
-            "name": "tWTYWx",
+            "characterName": "tWTYWx",
             "role": "Танк",
             "gearScore": 5201
           }
@@ -197,7 +197,7 @@ const jsonDataParsed = JSON.parse(jsonData);
   // Преобразование данных JSON в структуры (класс Raid)
  export const raids = jsonDataParsed.raids.map(raidData => {
     const characters = raidData.characters.map(characterData => ({
-      name: characterData.name,
+      characterName: characterData.characterName,
       role: characterData.role,
       gearScore: characterData.gearScore,
     }));
